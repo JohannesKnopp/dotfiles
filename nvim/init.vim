@@ -1,3 +1,4 @@
+" Load lua module for key mappings
 :source ~/.config/nvim/lua/myluamodule.lua
 
 " Plugins
