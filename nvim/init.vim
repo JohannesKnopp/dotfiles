@@ -18,15 +18,24 @@ Plug 'https://github.com/preservim/tagbar', {'on': 'TagbarToggle'} " Tagbar for 
 Plug 'https://github.com/dkarter/bullets.vim'
 Plug 'https://github.com/junegunn/fzf.vim' " Fuzzy Finder, Needs Silversearcher-ag for :Ag
 Plug 'https://github.com/junegunn/fzf'
-" Plug 'https://github.com/glepnir/dashboard-nvim'
 Plug 'https://github.com/davidhalter/jedi-vim'
-" Plug 'github/copilot.vim'
 Plug 'https://github.com/mbbill/undotree'
 Plug 'https://github.com/numirias/semshi'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'phanviet/vim-monokai-pro'
 
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'SmiteshP/nvim-navic'
+
+" Plug 'fgheng/winbar.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+
+" Plug 'https://github.com/glepnir/dashboard-nvim'
+
 call plug#end()
+
+
+au BufRead * set number relativenumber
 
 :set number
 :set relativenumber
@@ -79,11 +88,24 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 let g:bullets_enabled_file_types = [
-	\ ' markdown',
+	\ 'markdown',
 	\ 'text'
 	\]
 
 let g:dashboard_default_executive = 'fzf'
+nnoremap <silent> <C-f> :BLines<CR>
 
-" :lua vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', {noremap = true})
+" NERDTree config
+let g:NERDTreeShowHidden = 1
+nnoremap <silent> <F6> :NERDTreeToggle<CR>
+
+" Navigate in visual linewraps
+noremap j gj
+noremap k gk
+noremap <UP> gk
+noremap <DOWN> gj
+
+" fold config
+set foldmethod=indent
+set foldlevel=1
 
