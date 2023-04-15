@@ -1,0 +1,31 @@
+set clipboard+=unnamedplus   
+
+set number
+set relativenumber
+set mouse=a
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set encoding=utf-8
+
+noremap j gj
+noremap k gk
+noremap <UP> gk
+noremap <DOWN> gj
+
+" fold config
+set foldmethod=indent
+set foldlevel=1
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" reset the cursor on start (for older versions of vim, usually not required)
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
