@@ -12,6 +12,7 @@ return {
 		local mason_lspconfig = require('mason-lspconfig')
 		local cmp_nvim_lsp = require('cmp_nvim_lsp')
 		local keymap = vim.keymap
+		local wk = require('which-key')
 
 		vim.api.nvim_create_autocmd('LspAttach', {
 			group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -20,9 +21,17 @@ return {
 					return { desc = desc, buffer = ev.buf, silent = true }
 				end
 
-				-- TODO add keymaps
-				keymap.set('n', 'gR', '<cmd>Telescope lsp_references<cr>', opts('Show  LSP references'))
+				keymap.set('n', 'K', vim.lsp.buf.hover, opts('Show documentation'))
+				keymap.set('n', 'gR', '<cmd>Telescope lsp_references<cr>', opts('Show LSP references'))
 				keymap.set('n', 'gD', vim.lsp.buf.declaration, opts('Go to declaration'))
+				keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', opts('Show LSP definitions'))
+				keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', opts('Show LSP implementations'))
+				keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts('Show LSP type definitions'))
+				keymap.set({ 'n', 'v' }, 'ga', vim.lsp.buf.code_action, opts('Show available code actions'))
+				wk.add({
+					{ '<leader>r', group = 'Rename' },
+					{ '<leader>rn', vim.lsp.buf.rename, desc = 'Smart Rename' },
+				})
 			end,
 		})
 

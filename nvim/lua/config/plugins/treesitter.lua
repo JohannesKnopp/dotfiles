@@ -35,7 +35,6 @@ return {
 				'python',
 				'gitignore',
 				'c',
-				-- 'c++'
 			},
 			ignore_install = {},
 			incremental_selection = {

@@ -37,7 +37,7 @@ return {
 			{ '<leader>ff', desc = 'Find Files'},
 			{ '<leader>fh', desc = 'Recent Files'},
 			{ '<leader>fs', desc = 'Search Text in Files'},
-			{ '<leader>fs', desc = 'Search Text under Cursor'},
+			{ '<leader>fc', desc = 'Search Text under Cursor'},
 		})
 	end,
 }

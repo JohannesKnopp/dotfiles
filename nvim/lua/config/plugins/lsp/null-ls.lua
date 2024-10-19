@@ -4,7 +4,9 @@ return {
 		local null_ls = require('null-ls')
 
 		local sources = {
-			null_ls.builtins.formatting.prettier,
+			null_ls.builtins.formatting.prettier.with({
+				filetypes = { 'javascript', 'typescript', 'css', 'html', 'json', 'markdown', 'yaml' }
+			}),
 			null_ls.builtins.formatting.black,
 			null_ls.builtins.formatting.djlint,
 			null_ls.builtins.formatting.eslint_d,
@@ -14,6 +16,11 @@ return {
 
 		null_ls.setup({
 			sources = sources,
+			-- on_attach = function(client, bufnr)
+			-- 	if client.server_capabilities.documentFormattingProvider then
+			-- 		vim.
+			-- 	end
+			-- end,
 		})
 
 		local keymap = vim.keymap
