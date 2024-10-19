@@ -19,3 +19,9 @@ keymap.set('n', 'k', 'gk', opts)
 keymap.set('n', 'j', 'gj', opts)
 keymap.set('n', '<UP>', 'gk', opts)
 keymap.set('n', '<DOWN>', 'gj', opts)
+
+
+-- COMMANDS
+
+-- print current working directory
+vim.api.nvim_create_user_command('Cwd', function() print(vim.fn.getcwd()) end, {})
