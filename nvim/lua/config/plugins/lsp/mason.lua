@@ -29,6 +29,7 @@ return {
 				'cssls',
 				'pyright',
 				'emmet_ls',
+				'bashls',
 			},
 		})
 
